@@ -1,4 +1,7 @@
+import time
+
 import streamlit as st
+import replicate
 
 
 st.markdown("# :rainbow[AI II Image]")
@@ -18,9 +21,15 @@ def configure_sitebar():
         "promt": promt,
         "submitted": submitted,
         }
+
+
+def main_page():
+    with st.spinner('Обработка'):
+        time.sleep(5)
+
 def main():
     configure_sitebar()
-
+    main_page()
 
 if __name__=="__main__":
     main()
