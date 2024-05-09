@@ -30,7 +30,7 @@ def main_page(
 ):
     if submitted:
         with st.spinner('Обработка'):
-            output = replicate.run(
+            result = replicate.run(
                 "stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4",
                 input={
                     "width": width,
@@ -38,6 +38,9 @@ def main_page(
                     "prompt": prompt,
                 }
             )
+            image = result[0]   # получаем одну картинку
+            with st.container(): #создаем пустой контейнер
+                st.image(image, caption="получившиеся изображение" )
           #  time.sleep(5)
 
 def main():
